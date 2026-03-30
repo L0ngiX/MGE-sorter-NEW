@@ -2,6 +2,9 @@
 A web based character sorter. Allows users to run through a manual merge sort of their favorite
 characters from a set.
 
+NEW!!! // Сборка от L0ngiX
+ORIGINAL CHARSORT ----> [KikaSuru](https://github.com/Kikasuru/mge-charasort)
+
 **Features**
  * Entirely client side, no backend server required.
  * Filtering out characters based on JSON based filters.
@@ -153,13 +156,6 @@ The script will automatically get the latest version, but will retain the previo
 
 ## Credits
 
- * [html2canvas](https://github.com/niklasvh/html2canvas/) for image generation.
- * [seedrandom](https://github.com/davidbau/seedrandom) for PRNG used in character array shuffling.
- * [lz-string](https://github.com/pieroxy/lz-string) for shareable link compression.
- * [SpinKit](http://tobiasahlin.com/spinkit/) for loading animation.
- * [thsort](http://mainyan.sakura.ne.jp/thsort.html) for the original inspiration.
+ * L0ngiX AKA Shoggoth Lover 
 
-## Known Issues
-
- * Does not work with CloudFlare's Rocket Loader.
- * Breaks on older versions of IE and mobile Safari, due to various incompatibilities.
+## Всем из Инфоинари привет! :D
