@@ -3,6 +3,7 @@ A web based character sorter. Allows users to run through a manual merge sort of
 characters from a set.
 
 NEW!!! // Сборка от L0ngiX
+
 ORIGINAL CHARSORT ----> [KikaSuru](https://github.com/Kikasuru/mge-charasort)
 
 **Features**
@@ -157,5 +158,6 @@ The script will automatically get the latest version, but will retain the previo
 ## Credits
 
  * L0ngiX AKA Shoggoth Lover 
+ * ORIGINAL CHARSORT ----> [KikaSuru](https://github.com/Kikasuru/mge-charasort)
 
 ## Всем из Инфоинари привет! :D
