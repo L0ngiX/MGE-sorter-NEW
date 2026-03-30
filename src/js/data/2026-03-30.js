@@ -3,9 +3,9 @@ dataSet[dataSetVersion] = {};
 
 dataSet[dataSetVersion].options = [
     {
-        name:"Filter by Type",
+        name:"Фильтр по типу",
         key:"type",
-        tooltip:"Check this to restrict to certain types.",
+        tooltip:"Отметь те типы, которые хочешь видеть",
         checked:false,
         sub:[
             {name:"Amphibian",key:"amphibian"},
@@ -38,7 +38,7 @@ dataSet[dataSetVersion].options = [
         ]
     },
     {
-        name:"Filter by Year",
+        name:"Фильтр по году выхода профиля",
         key:"year",
         checked:false,
         sub:[
