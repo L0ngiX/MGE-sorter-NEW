@@ -1,4 +1,4 @@
-dataSetVersion = "2020-09-05"; // Change this when creating a new data set version. YYYY-MM-DD format.
+dataSetVersion = "2026-03-30"; // Change this when creating a new data set version. YYYY-MM-DD format.
 dataSet[dataSetVersion] = {};
 
 dataSet[dataSetVersion].options = [
@@ -555,7 +555,13 @@ dataSet[dataSetVersion].characterData = [
 
             fuck man, i just got dysphoria from writing that
             shit
-        */
+        
+            ^
+            |
+            |
+        Ебнутый?
+
+       */
     },
     {
         name:"Salamander",
@@ -1097,7 +1103,7 @@ dataSet[dataSetVersion].characterData = [
         opts:{type:["demon"],year:["2017"]}
     },
     {
-        name:"Automaton", //She can run Mario 64 and I think that's great.
+        name:"Automaton", //She can run Mario 64 and I think that's great. Doom is needed too
         img:"https://i.imgur.com/ecDhTLp.png",
         opts:{type:["magicmaterial"],year:["2017"]}
     },

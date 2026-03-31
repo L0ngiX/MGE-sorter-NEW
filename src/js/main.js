@@ -65,9 +65,9 @@ function init() {
   
   document.querySelector('.sorting.tie.button').addEventListener('click', () => pick('tie'));
   document.querySelector('.sorting.undo.button').addEventListener('click', undo);
-  document.querySelector('.sorting.save.button').addEventListener('click', () => saveProgress('Progress'));
+  document.querySelector('.sorting.save.button').addEventListener('click', () => saveProgress('Прогресс'));
   
-  document.querySelector('.finished.save.button').addEventListener('click', () => saveProgress('Last Result'));
+  document.querySelector('.finished.save.button').addEventListener('click', () => saveProgress('Последний результат'));
   document.querySelector('.finished.getimg.button').addEventListener('click', generateImage);
   document.querySelector('.finished.list.button').addEventListener('click', generateTextList);
 
@@ -78,7 +78,7 @@ function init() {
     /** If sorting is in progress. */
     if (timestamp && !timeTaken && !loading && choices.length === battleNo - 1) {
       switch(ev.key) {
-        case 's': case '3':                   saveProgress('Progress'); break;
+        case 's': case '3':                   saveProgress('Прогресс'); break;
         case 'h': case 'ArrowLeft':           pick('left'); break;
         case 'l': case 'ArrowRight':          pick('right'); break;
         case 'k': case '1': case 'ArrowUp':   pick('tie'); break;
@@ -89,7 +89,7 @@ function init() {
     /** If sorting has ended. */
     else if (timeTaken && choices.length === battleNo - 1) {
       switch(ev.key) {
-        case 'k': case '1': saveProgress('Last Result'); break;
+        case 'k': case '1': saveProgress('Последний результат'); break;
         case 'j': case '2': generateImage(); break;
         case 's': case '3': generateTextList(); break;
         default: break;
@@ -194,7 +194,7 @@ function start() {
   });
 
   if (characterDataToSort.length < 2) {
-    alert('Cannot sort with less than two characters. Please reselect.');
+    alert('Нельзя сортировать если меньше двух персонажей. Выбери заново');
     return;
   }
 
@@ -289,7 +289,7 @@ function display() {
     return `<p title="${charTooltip}"><a href = ${charUrl} target="_blank">${charName}</a></p>`;
   };
 
-  progressBar(`Battle No. ${battleNo}`, percent);
+  progressBar(`Раунд No. ${battleNo}`, percent);
 
   document.querySelector('.left.sort.image').src = leftChar.img;
   document.querySelector('.right.sort.image').src = rightChar.img;
@@ -307,7 +307,7 @@ function display() {
       case 2: pick('tie'); break;
       default: break;
     }
-  } else { saveProgress('Autosave'); }
+  } else { saveProgress('Автосейв'); }
 }
 
 /**
@@ -426,7 +426,7 @@ function pick(sortType) {
   if (leftIndex < 0) {
     timeTaken = timeTaken || new Date().getTime() - timestamp;
 
-    progressBar(`Battle No. ${battleNo} - Completed!`, 100);
+    progressBar(`Раунд No. ${battleNo} - Завершено!`, 100);
 
     result();
   } else {
@@ -550,7 +550,7 @@ function undo() {
 /** 
  * Save progress to local browser storage.
  * 
- * @param {'Autosave'|'Progress'|'Last Result'} saveType
+ * @param {'Автосейв'|'Прогресс'|'Последний результат'} saveType
 */
 function saveProgress(saveType) {
   const saveData = generateSavedata();
@@ -558,12 +558,12 @@ function saveProgress(saveType) {
   localStorage.setItem(`${sorterURL}_saveData`, saveData);
   localStorage.setItem(`${sorterURL}_saveType`, saveType);
 
-  if (saveType !== 'Autosave') {
+  if (saveType !== 'Автосейв') {
     const saveURL = `${location.protocol}//${sorterURL}?${saveData}`;
-    const inProgressText = 'You may click Load Progress after this to resume, or use this URL.';
-    const finishedText = 'You may use this URL to share this result, or click Load Last Result to view it again.';
+    const inProgressText = 'Ты можешь нажать на Загрузить прогресс после этого для продолжения, либо использовать этот URL';
+    const finishedText = 'Ты можешь использовать URL чтобы поделиться результатом, или можешь нажать на Загрузку последнего результата, чтобы снова увидеть его';
 
-    window.prompt(saveType === 'Last Result' ? finishedText : inProgressText, saveURL);
+    window.prompt(saveType === 'Последний результат' ? finishedText : inProgressText, saveURL);
   }
 }
 
@@ -601,12 +601,12 @@ function generateImage() {
 
     imgButton.removeEventListener('click', generateImage);
     imgButton.innerHTML = '';
-    imgButton.insertAdjacentHTML('beforeend', `<a href="${dataURL}" download="${filename}">Download Image</a><br><br>`);
+    imgButton.insertAdjacentHTML('beforeend', `<a href="${dataURL}" download="${filename}">Скачать картинку</a><br><br>`);
 
-    resetButton.insertAdjacentText('beforeend', 'Reset');
+    resetButton.insertAdjacentText('beforeend', 'Отмена');
     resetButton.addEventListener('click', (event) => {
       imgButton.addEventListener('click', generateImage);
-      imgButton.innerHTML = 'Generate Image';
+      imgButton.innerHTML = 'Сгенерировать картинку итогов';
       event.stopPropagation();
     });
     imgButton.insertAdjacentElement('beforeend', resetButton);
@@ -773,7 +773,7 @@ function preloadImages() {
     return new Promise((res, rej) => {
       const reader = new FileReader();
       reader.onload = ev => {
-        progressBar(`Loading Image ${++imagesLoaded}`, Math.floor(imagesLoaded * 100 / totalLength));
+        progressBar(`Загрузка изображения ${++imagesLoaded}`, Math.floor(imagesLoaded * 100 / totalLength));
         res(ev.target.result);
       };
       reader.onerror = rej;
